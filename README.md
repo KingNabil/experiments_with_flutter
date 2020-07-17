@@ -1,4 +1,4 @@
-# Experiments with Flutter
+# Clock by Clock
 
 Inspiration of this project - https://clockclock.com/
 
