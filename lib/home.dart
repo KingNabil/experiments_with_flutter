@@ -16,9 +16,11 @@ class Home extends StatelessWidget {
           Container(alignment: Alignment.center, child: TestDigit()),
           Container(
               alignment: Alignment.center,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[TestDigit(), TestDigit(), TestDigit()],
+              child: FittedBox(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[TestDigit(), TestDigit(), TestDigit()],
+                ),
               )),
           Container(alignment: Alignment.center, child: ClockByClock()),
         ],
