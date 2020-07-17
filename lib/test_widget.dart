@@ -11,24 +11,20 @@ class TestDigit extends StatefulWidget {
 }
 
 class _TestDigitState extends State<TestDigit> {
-  Digits digit = Digits.zero;
+  Digit digit = Digit.zero;
+
+  _update() => setState(() {
+        digit = digit == Digit.nine ? Digit.zero : Digit.values[digit.index + 1];
+        print(digit);
+      });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        setState(() {
-          digit = digit == Digits.nine ? Digits.zero : Digits.values[digit.index + 1];
-          print(digit);
-        });
-      },
-      child: Container(
-        child: SingleDigit(digit),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          border: Border.all(color: Colors.blue, width: 2),
-        ),
-      ),
+      onTap: _update,
+      highlightColor: Colors.transparent,
+      splashColor: Colors.transparent,
+      child: SingleDigit(digit, tickColor: Colors.black54),
     );
   }
 }
@@ -42,17 +38,17 @@ class TestSingleClock extends StatefulWidget {
 class _TestSingleClockState extends State<TestSingleClock> {
   DoubleHandPosition dhp = DoubleHandPosition.none;
 
+  _update() => setState(() {
+        dhp = dhp == DoubleHandPosition.nine_six ? DoubleHandPosition.none : DoubleHandPosition.values[dhp.index + 1];
+      });
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
-      onTap: () {
-        setState(() {
-          dhp = dhp == DoubleHandPosition.nine_six ? DoubleHandPosition.none : DoubleHandPosition.values[dhp.index + 1];
-        });
-      },
       child: SingleClock(dhp),
+      onTap: _update,
     );
   }
 }

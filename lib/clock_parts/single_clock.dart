@@ -2,34 +2,37 @@ import 'package:experiments_with_flutter/clock_parts/clock_hand.dart';
 import 'package:experiments_with_flutter/constants/hand_position_enums.dart';
 import 'package:flutter/material.dart';
 
-class SingleClock extends StatefulWidget {
-  final double radius;
+class SingleClock extends StatelessWidget {
+  final Color color, tickColor;
+  final double radius, spacing;
   final DoubleHandPosition time;
 
-  SingleClock(this.time, {this.radius = 100});
+  const SingleClock(this.time, {this.radius = 100, this.spacing = 4, this.color, this.tickColor = Colors.black});
 
-  @override
-  _SingleClockState createState() => _SingleClockState();
-}
-
-class _SingleClockState extends State<SingleClock> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.topCenter,
-      children: <Widget>[
-        Container(
-          width: widget.radius,
-          height: widget.radius,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-//              border: Border.all(color: Colors.blue, width: 3),
-              color: Colors.white.withOpacity(.1),
-          ),
+    return Container(
+      alignment: Alignment.center,
+      width: radius + spacing,
+      height: radius + spacing,
+      margin: EdgeInsets.all(spacing),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: color ?? Colors.grey[300],
+        boxShadow: [
+          BoxShadow(color: Colors.black.withOpacity(.5), offset: Offset(2, 2), blurRadius: 7, spreadRadius: .5),
+          BoxShadow(color: Colors.white.withOpacity(.90), offset: Offset(-2, -2), blurRadius: 7, spreadRadius: .5),
+        ],
+      ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Stack(
+          children: <Widget>[
+            ClockHand(radius: radius + spacing, handPosition: time.hp1, color: tickColor),
+            ClockHand(radius: radius + spacing, handPosition: time.hp2, color: tickColor),
+          ],
         ),
-        ClockHand(radius: widget.radius, handPosition: widget.time.hp1),
-        ClockHand(radius: widget.radius, handPosition: widget.time.hp2),
-      ],
+      ),
     );
   }
 }

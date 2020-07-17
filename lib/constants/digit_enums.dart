@@ -1,156 +1,167 @@
 import 'package:experiments_with_flutter/constants/hand_position_enums.dart';
 
-enum Digits { zero, one, two, three, four, five, six, seven, eight, nine }
+enum Digit { zero, one, two, three, four, five, six, seven, eight, nine }
 
-extension DigitExtentions on Digits {
+extension DigitExtentions on Digit {
   DoubleHandPosition get topLeft {
     switch (this) {
-      case Digits.one:
+      case Digit.zero:
+        return DoubleHandPosition.three_six;
+      case Digit.one:
         return DoubleHandPosition.none;
-      case Digits.two:
+      case Digit.two:
         return DoubleHandPosition.three;
-      case Digits.three:
+      case Digit.three:
         return DoubleHandPosition.three;
-      case Digits.four:
+      case Digit.four:
         return DoubleHandPosition.six;
-      case Digits.five:
+      case Digit.five:
         return DoubleHandPosition.three_six;
-      case Digits.six:
+      case Digit.six:
         return DoubleHandPosition.three_six;
-      case Digits.seven:
+      case Digit.seven:
         return DoubleHandPosition.three;
-      case Digits.eight:
+      case Digit.eight:
         return DoubleHandPosition.three_six;
-      case Digits.nine:
+      case Digit.nine:
         return DoubleHandPosition.three_six;
       default:
-        return DoubleHandPosition.three_six;
+        return DoubleHandPosition.none;
     }
   }
 
   DoubleHandPosition get topRight {
     switch (this) {
-      case Digits.one:
+      case Digit.zero:
+        return DoubleHandPosition.six_nine;
+      case Digit.one:
         return DoubleHandPosition.six;
-      case Digits.two:
+      case Digit.two:
         return DoubleHandPosition.six_nine;
-      case Digits.three:
+      case Digit.three:
         return DoubleHandPosition.six_nine;
-      case Digits.four:
+      case Digit.four:
         return DoubleHandPosition.six;
-      case Digits.five:
+      case Digit.five:
         return DoubleHandPosition.nine;
-      case Digits.six:
+      case Digit.six:
         return DoubleHandPosition.nine;
-      case Digits.seven:
+      case Digit.seven:
         return DoubleHandPosition.six_nine;
-      case Digits.eight:
+      case Digit.eight:
         return DoubleHandPosition.six_nine;
-      case Digits.nine:
+      case Digit.nine:
         return DoubleHandPosition.six_nine;
       default:
-        return DoubleHandPosition.six_nine;
+        return DoubleHandPosition.none;
     }
   }
 
   DoubleHandPosition get centerLeft {
     switch (this) {
-      case Digits.one:
-        return DoubleHandPosition.none;
-      case Digits.two:
-        return DoubleHandPosition.three_six;
-      case Digits.three:
-        return DoubleHandPosition.three;
-      case Digits.four:
-        return DoubleHandPosition.zero_three;
-      case Digits.five:
-        return DoubleHandPosition.zero_three;
-      case Digits.six:
+      case Digit.zero:
         return DoubleHandPosition.zero_six;
-      case Digits.seven:
+      case Digit.one:
         return DoubleHandPosition.none;
-      case Digits.eight:
+      case Digit.two:
         return DoubleHandPosition.three_six;
-      case Digits.nine:
+      case Digit.three:
+        return DoubleHandPosition.three;
+      case Digit.four:
+        return DoubleHandPosition.zero_three;
+      case Digit.five:
+        return DoubleHandPosition.zero_three;
+      case Digit.six:
+        return DoubleHandPosition.zero_six;
+      case Digit.seven:
+        return DoubleHandPosition.none;
+      case Digit.eight:
+        return DoubleHandPosition.zero_three;
+      case Digit.nine:
         return DoubleHandPosition.zero_three;
       default:
-        return DoubleHandPosition.zero_six;
+        return DoubleHandPosition.none;
     }
-
   }
 
   DoubleHandPosition get centerRight {
     switch (this) {
-      case Digits.one:
+      case Digit.zero:
         return DoubleHandPosition.zero_six;
-      case Digits.two:
+      case Digit.one:
+        return DoubleHandPosition.zero_six;
+      case Digit.two:
         return DoubleHandPosition.zero_nine;
-      case Digits.three:
-        return DoubleHandPosition.zero_six;
-      case Digits.four:
-        return DoubleHandPosition.zero_six;
-      case Digits.five:
-        return DoubleHandPosition.nine_six;
-      case Digits.six:
-        return DoubleHandPosition.nine_six;
-      case Digits.seven:
-        return DoubleHandPosition.zero_six;
-      case Digits.eight:
+      case Digit.three:
         return DoubleHandPosition.zero_nine;
-      case Digits.nine:
+      case Digit.four:
+        return DoubleHandPosition.zero_six;
+      case Digit.five:
+        return DoubleHandPosition.nine_six;
+      case Digit.six:
+        return DoubleHandPosition.nine_six;
+      case Digit.seven:
+        return DoubleHandPosition.zero_six;
+      case Digit.eight:
+        return DoubleHandPosition.zero_nine;
+      case Digit.nine:
         return DoubleHandPosition.zero_six;
       default:
-        return DoubleHandPosition.zero_six;
+        return DoubleHandPosition.none;
     }
   }
 
   DoubleHandPosition get bottomLeft {
     switch (this) {
-      case Digits.one:
-        return DoubleHandPosition.none;
-      case Digits.two:
+      case Digit.zero:
         return DoubleHandPosition.zero_three;
-      case Digits.three:
+      case Digit.one:
+        return DoubleHandPosition.none;
+      case Digit.two:
+        return DoubleHandPosition.zero_three;
+      case Digit.three:
         return DoubleHandPosition.three;
-      case Digits.four:
+      case Digit.four:
         return DoubleHandPosition.none;
-      case Digits.five:
+      case Digit.five:
         return DoubleHandPosition.three;
-      case Digits.six:
+      case Digit.six:
         return DoubleHandPosition.zero_three;
-      case Digits.seven:
+      case Digit.seven:
         return DoubleHandPosition.none;
-      case Digits.eight:
+      case Digit.eight:
         return DoubleHandPosition.zero_three;
-      case Digits.nine:
+      case Digit.nine:
         return DoubleHandPosition.three;
       default:
-        return DoubleHandPosition.zero_three;
+        return DoubleHandPosition.none;
     }
   }
 
   DoubleHandPosition get bottomRight {
     switch (this) {
-      case Digits.one:
+      case Digit.zero:
+        return DoubleHandPosition.zero_nine;
+      case Digit.one:
         return DoubleHandPosition.zero;
-      case Digits.two:
+      case Digit.two:
         return DoubleHandPosition.nine;
-      case Digits.three:
+      case Digit.three:
         return DoubleHandPosition.zero_nine;
-      case Digits.four:
+      case Digit.four:
         return DoubleHandPosition.zero;
-      case Digits.five:
+      case Digit.five:
         return DoubleHandPosition.zero_nine;
-      case Digits.six:
+      case Digit.six:
         return DoubleHandPosition.zero_nine;
-      case Digits.seven:
+      case Digit.seven:
         return DoubleHandPosition.zero;
-      case Digits.eight:
+      case Digit.eight:
         return DoubleHandPosition.zero_nine;
-      case Digits.nine:
+      case Digit.nine:
         return DoubleHandPosition.zero_nine;
       default:
-        return DoubleHandPosition.zero_nine;
+        return DoubleHandPosition.none;
     }
   }
 }

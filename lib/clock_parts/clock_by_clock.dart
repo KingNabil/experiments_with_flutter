@@ -37,14 +37,16 @@ class _ClockByClockState extends State<ClockByClock> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: FittedBox(child: Row(children: <Widget>[DoubleDigit(t1), DoubleDigit(t2)])),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(30)),
-        border: Border.all(color: Colors.white, width: 5),
+    return FittedBox(
+      child: Container(
+        child: Row(children: <Widget>[DoubleDigit(t1), DoubleDigit(t2)]),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(30)),
+          border: Border.all(color: Colors.white, width: 5),
+        ),
+        margin: EdgeInsets.all(30),
+        padding: EdgeInsets.all(30),
       ),
-      margin: EdgeInsets.all(30),
-      padding: EdgeInsets.all(30),
     );
   }
 }

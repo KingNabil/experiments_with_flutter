@@ -9,14 +9,14 @@ class DoubleDigit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Digits d1, d2;
+    Digit d1, d2;
 
     if (number.toString().length == 1) {
-      d1 = Digits.zero;
-      d2 = Digits.values[number];
+      d1 = Digit.zero;
+      d2 = Digit.values[number];
     } else {
-      d1 = Digits.values[int.parse(number.toString()[0])];
-      d2 = Digits.values[int.parse(number.toString()[1])];
+      d1 = Digit.values[int.parse(number.toString()[0])];
+      d2 = Digit.values[int.parse(number.toString()[1])];
     }
 
     return Row(
