@@ -47,7 +47,7 @@ class _TestSingleClockState extends State<TestSingleClock> {
     return InkWell(
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
-      child: SingleClock(dhp),
+      child: SingleClock(dhp, radius: 250),
       onTap: _update,
     );
   }

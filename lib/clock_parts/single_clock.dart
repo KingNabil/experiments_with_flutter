@@ -4,17 +4,18 @@ import 'package:flutter/material.dart';
 
 class SingleClock extends StatelessWidget {
   final Color color, tickColor;
-  final double radius, spacing;
   final DoubleHandPosition time;
+  final double radius, spacing, tickMargin, tickThickness;
 
-  const SingleClock(this.time, {this.radius = 100, this.spacing = 4, this.color, this.tickColor = Colors.black});
+  const SingleClock(this.time,
+      {@required this.radius, this.spacing = 4, this.tickMargin = 4, this.tickThickness = 10, this.color, this.tickColor = Colors.black});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: radius + spacing,
-      height: radius + spacing,
+      width: radius,
+      height: radius,
       margin: EdgeInsets.all(spacing),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
@@ -24,12 +25,13 @@ class SingleClock extends StatelessWidget {
           BoxShadow(color: Colors.white.withOpacity(.90), offset: Offset(-2, -2), blurRadius: 7, spreadRadius: .5),
         ],
       ),
-      child: Align(
+      child: Container(
+        margin: EdgeInsets.all(tickMargin),
         alignment: Alignment.topCenter,
         child: Stack(
           children: <Widget>[
-            ClockHand(radius: radius + spacing, handPosition: time.hp1, color: tickColor),
-            ClockHand(radius: radius + spacing, handPosition: time.hp2, color: tickColor),
+            ClockHand(length: radius - tickMargin - spacing, handPosition: time.hp1, color: tickColor, thickness: tickThickness),
+            ClockHand(length: radius - tickMargin - spacing, handPosition: time.hp2, color: tickColor, thickness: tickThickness),
           ],
         ),
       ),
