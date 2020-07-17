@@ -1,6 +1,6 @@
 # Experiments with Flutter
 
-Ideas and design sources are the inspiration of this project
+Inspiration of this project - https://clockclock.com/
 
 ### Preview
 ![](preview/1.png) 
