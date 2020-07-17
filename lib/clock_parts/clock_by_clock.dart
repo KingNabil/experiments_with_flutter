@@ -42,7 +42,7 @@ class _ClockByClockState extends State<ClockByClock> {
         child: Row(children: <Widget>[DoubleDigit(t1), DoubleDigit(t2)]),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30)),
-          border: Border.all(color: Colors.black, width: 5),
+          border: Border.all(color: Colors.black54, width: 5),
         ),
         margin: EdgeInsets.all(30),
         padding: EdgeInsets.all(30),
